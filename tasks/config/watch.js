@@ -18,7 +18,14 @@ module.exports = function(grunt) {
 		api: {
 
 			// API files to watch:
-			files: ['api/**/*']
+			files: [
+				'api/controllers/*',
+				'api/models/*',
+				'api/services/*',
+				'api/policies/*',
+				'api/responses/*',
+				'api/hooks/*'
+			]
 		},
 		assets: {
 
