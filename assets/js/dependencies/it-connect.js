@@ -1,7 +1,6 @@
 "use strict";
 
 window.ITConnect = ( function() {
-    var apiPrefix = '/api/';
 
     return {
 
@@ -10,7 +9,7 @@ window.ITConnect = ( function() {
 
             // Login action
             login: function( mail, password, connect, cb ) {
-                io.socket.post( apiPrefix + '/api/user/login', {
+                io.socket.post( '/user/login', {
                     mail: mail,
                     password: password,
                     connect: connect
@@ -19,7 +18,7 @@ window.ITConnect = ( function() {
 
             // Login action
             register: function( mail, password, cb ) {
-                io.socket.post( apiPrefix + '/user/register', {
+                io.socket.post( '/user/register', {
                     mail: mail,
                     password: password
                 }, cb );

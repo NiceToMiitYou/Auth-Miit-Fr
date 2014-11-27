@@ -41,6 +41,7 @@ ITEventApp.controller(
                                     } else if ( $scope.s == 3 ) {
 
                                         // If last step, connect
+                                        window.location.pathname = '/redirect';
                                     }
 
                                     requestSend = false;

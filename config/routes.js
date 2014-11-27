@@ -34,6 +34,20 @@ module.exports.routes = {
 
   '/': 'http://www.itevents.fr/',
 
+  'POST /user/login': {
+    controller: 'UserController',
+    action: 'login'
+  },
+
+  'POST /user/register': {
+    controller: 'UserController',
+    action: 'register'
+  },
+
+  'GET /redirect': {
+    controller: 'UserController',
+    action: 'redirect'
+  },
 
   'GET /:token': {
     controller: 'UserController',
