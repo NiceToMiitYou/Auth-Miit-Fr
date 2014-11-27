@@ -2,7 +2,7 @@
 
     <div class="tiles white no-padding">
         
-        <img ng-src="{{conference.logo}}"
+        <img src="<%= conference.logo %>"
              class="client_logo p-t-30"
              width="200"/>
         
@@ -11,7 +11,7 @@
                 Connectez-vous pour commencer
             </h3>
             <p class="p-b-20">
-                ITEvents vous présente sa conférence de test.
+                <%= conference.description %>
             </p>
         </div>
         
