@@ -6,16 +6,17 @@ ITEventApp.controller(
 
             var requestSend = false;
 
-            function login( connect ) {
+            function login() {
 
                 if( !requestSend ) {
 
                     requestSend = true;
 
-                    ITConnect.user.login( $scope.user.mail, $scope.user.password, connect,
+                    ITConnect.user.login( $scope.user.mail, $scope.user.password,
                         
                         function( data ) {
-                            if(data.done) {
+                            
+                            if( data.done ) {
                             
                                 $timeout(function() {
                                     
@@ -95,7 +96,7 @@ ITEventApp.controller(
                 ) {
                     // First Step, check email
 
-                    login( false );
+                    login();
 
                 } else if (
                     $scope.s == 2 &&
@@ -116,7 +117,7 @@ ITEventApp.controller(
                     } else {
                         // If the user exist 
 
-                        login( false );
+                        login();
                     }
 
                 } else if (
@@ -127,7 +128,7 @@ ITEventApp.controller(
                 ) {
                     // Check if user accept terms
 
-                    login( true );
+                    login();
                 }
 
             };

@@ -112,11 +112,13 @@ module.exports = {
      * `UserController.redirect()`
      */
     redirect: function( req, res ) {
+
         if( req.session.conference &&
             req.session.location ) {
 
             return res.redirect( req.session.location );
         }
+
         return res.redirect( redirectUrl );
     }
 };
