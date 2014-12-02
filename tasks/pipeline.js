@@ -18,10 +18,6 @@ var cssFilesToInject = [
 
   'plugins/bootstrap*/**/*.css',
 
-  'plugins/jquery-notifications/css/messenger.css',
-  
-  'plugins/jquery-notifications/css/messenger-*.css',
-
   'plugins/jquery-*/**/*.css',
 
   'plugins/**/*.css',
@@ -52,10 +48,6 @@ var jsFilesToInject = [
 
   'plugins/bootstrap*/**/*.js',
 
-  'plugins/jquery-notifications/js/messenger.js',
-  
-  'plugins/jquery-notifications/js/messenger-*.js',
-
   'plugins/jquery-*/**/*.js',
 
   'plugins/**/*.js',
@@ -64,8 +56,6 @@ var jsFilesToInject = [
   // will be injected here in no particular order.
 
   'js/utils/**/*.js',
-
-  'js/app.js',
 
   'js/controllers/**/*.js',
 
