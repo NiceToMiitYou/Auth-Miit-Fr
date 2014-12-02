@@ -25,7 +25,6 @@ ITEventApp.controller(
 
                                         $scope.user.newuser = !data.exist;
                                         $scope.s = 2;
-
                                         // Step two
                                     } else if ( $scope.s == 2 ) {
 

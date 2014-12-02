@@ -8,11 +8,10 @@ window.ITConnect = ( function() {
         user: {
 
             // Login action
-            login: function( mail, password, connect, cb ) {
+            login: function( mail, password, cb ) {
                 io.socket.post( '/user/login', {
                     mail: mail,
-                    password: password,
-                    connect: connect
+                    password: password
                 }, cb );
             },
 
