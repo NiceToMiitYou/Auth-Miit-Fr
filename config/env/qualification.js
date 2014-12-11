@@ -27,5 +27,7 @@ module.exports = {
         host: 'ws.qlf.priv.miit.fr',
         port: 80
     }
-  }
+  },
+
+  port: 80
 };
