@@ -24,7 +24,7 @@ module.exports = {
             accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
         },
         protocol: 'http',
-        host: 'ws.qlf.priv.miit.fr',
+        host: 'dwh.qlf.priv.miit.fr',
         port: 80
     }
   },
