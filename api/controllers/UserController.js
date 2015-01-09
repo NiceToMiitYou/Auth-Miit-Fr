@@ -60,7 +60,9 @@ module.exports = {
                 }, function( err, response ) {
                     if( err || !response ) {
 
-                        return res.notDone();
+                        return res.notDone({
+                            error: 'ERROR_WHILE_LOGIN'
+                        });
                     }
 
                     req.session.location = response.location;
@@ -72,7 +74,9 @@ module.exports = {
                 } );
         } else {
 
-            return res.notDone();
+            return res.notDone({
+                error: 'INVALID_MAIL_OR_CONFERENCE'
+            });
         }
     },
 
