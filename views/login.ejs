@@ -8,7 +8,7 @@
         
         <div class="p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10"> 
             <h3 class="normal">
-                Connectez-vous pour commencer
+                <%= __('login.title') %>
             </h3>
             <p class="p-b-20">
                 <%= conference.description %>
@@ -30,15 +30,15 @@
                         <div id="step_email">
                             <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-info-circle fa-2x"></i>
-                                Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira egalement si vous souhaitez vous envoyer des notes.
+                                <%= __('login.your.email') %>
                             </h4>
 
                             <div class="col-md-12 col-sm-12">
                                 <label>
-                                    Entrez votre adresse e-mail :
+                                    <%= __('login.form.enter.email') %>
                                     <span ng-show="frm_login.login_email.$error.pattern"
-                                          class="error">
-                                        Entrez une adresse mail valide
+                                          class="error pull-right">
+                                        <%= __('login.form.enter.email.error') %>
                                     </span>
                                 </label>
 
@@ -58,27 +58,27 @@
                         <div id="step_password">
                             <h4 ng-show="user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-users fa-2x"></i>
-                                Nous ne connaissons pas votre adresse e-mail, choisissez un mot de passe pour rejoindre la conférence et protéger votre compte.
+                                <%= __('login.your.email.is.unknown') %>
                             </h4>
                             <h4 ng-show="!user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-users fa-2x"></i>
-                                Bienvenue à cette conférence. Nous sommes très heureux de vous retrouver.
+                                <%= __('login.your.email.is.known') %>
                             </h4>
                             
                             <div class="col-md-12">
                                 <label ng-show="user.newuser">
-                                    Choisissez un mot de passe : 
+                                    <%= __('login.form.enter.new.password') %>
                                     <span ng-show="frm_login.login_pass.$error.minlength"
-                                          class="error">
-                                        Votre mot de passe doit faire 6 characteres minimum.
+                                          class="error pull-right">
+                                        <%= __('login.form.enter.new.password.error') %>
                                     </span>
                                 </label>
 
                                 <label ng-show="!user.newuser">
-                                    Entrez votre mot de passe : 
+                                    <%= __('login.form.enter.password') %>
                                     <span ng-show="wrpass"
-                                          class="error">
-                                        Votre mot de passe ne correspond pas à l'adresse e-mail.
+                                          class="error pull-right">
+                                        <%= __('login.form.enter.password.error') %>
                                     </span>
                                 </label>
 
@@ -94,10 +94,10 @@
 
                             <div class="col-md-12 m-t-10" ng-show="user.newuser">
                                 <label>
-                                    Confirmez votre mot de passe :
+                                    <%= __('login.form.confirm.password') %>
                                     <span ng-show="frm_login.login_pass_c.$dirty && user.password !== user.password_c"
-                                          class="error">
-                                        Votre mot de passe ne correspond pas à la confirmation.
+                                          class="error pull-right">
+                                        <%= __('login.form.confirm.password.error') %>
                                     </span>
                                 </label>
                                  <input ng-model="user.password_c"
@@ -114,8 +114,7 @@
                         <div id="step_terms">
                             <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-thumbs-o-up fa-2x p-r-5"></i>
-                                Félicitation, vous vous êtes connecté avec succès.
-                                Acceptez les conditions générales d'utilisation pour entrer dans la conférence.
+                                <%= __('login.form.accept.cgu.please') %>
                             </h4>
 
                             <div class="control-group col-md-12 m-t-20 text-center">
@@ -127,7 +126,7 @@
                                            value="1">
 
                                     <label for="login_terms">
-                                        Accepter les conditions générales d'utilisation
+                                        <%= __('login.form.accept.cgu') %>
                                     </label>
                                 </div>
                             </div>
@@ -141,7 +140,7 @@
                                 type="button" 
                                 class="btn btn-default btn-block btn-cons">
 
-                            <i class="fa fa-arrow-left m-r-10"></i> Précédent
+                            <i class="fa fa-arrow-left m-r-10"></i> <%= __('login.form.previous') %>
                         </button>
                     </div>
 
@@ -151,7 +150,7 @@
                                 type="button"
                                 class="btn btn-primary btn-block btn-cons">
 
-                            {{ s == 3 ? 'Connexion' : 'Suivant' }} <i class="fa fa-arrow-right m-l-10"></i>
+                            {{ s === 3 ? '<%= __('login.form.connection') %>' : '<%= __('login.form.next') %>' }} <i class="fa fa-arrow-right m-l-10"></i>
                         </button>
                     </div>
                 </div>

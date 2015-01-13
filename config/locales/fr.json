@@ -1,4 +1,28 @@
 {
-	"Welcome": "Bienvenue",
-	"A brand new app.": "Une toute nouvelle application."
+    "app.title": "Miit - Authentification",
+
+    "login.title": "Connectez-vous pour commencer",
+
+    "login.your.email": "Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira egalement si vous souhaitez vous envoyer des notes.",
+    "login.your.email.is.unknown": "Nous ne connaissons pas votre adresse e-mail, choisissez un mot de passe pour rejoindre la conférence et protéger votre compte.",
+    "login.your.email.is.known": "Bienvenue à cette conférence. Nous sommes très heureux de vous retrouver.",
+
+    "login.form.enter.email": "Entrez votre adresse e-mail",
+    "login.form.enter.email.error": "Entrez un adresse e-mail valide",
+
+    "login.form.enter.new.password": "Choisissez un mot de passe",
+    "login.form.enter.new.password.error": "Votre mot de passe doit faire 6 characteres minimum",
+
+    "login.form.enter.password": "Entrez votre mot de passe",
+    "login.form.enter.password.error": "Votre mot de passe ne correspond pas à l'adresse e-mail",
+
+    "login.form.confirm.password": "Confirmez votre mot de passe",
+    "login.form.confirm.password.error": "Votre mot de passe ne correspond pas à la confirmation",
+
+    "login.form.accept.cgu.please": "Félicitation, vous vous êtes connecté avec succès. Acceptez les conditions générales d'utilisation pour entrer dans la conférence.",
+    "login.form.accept.cgu": "Accepter les conditions générales d'utilisation",
+
+    "login.form.previous": "Précédent",
+    "login.form.next": "Suivant",
+    "login.form.connection": "Connexion"
 }
