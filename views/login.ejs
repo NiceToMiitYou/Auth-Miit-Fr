@@ -30,15 +30,15 @@
                         <div id="step_email">
                             <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-info-circle fa-2x"></i>
-                                <%= __('login.your.email') %>
+                                <%= __('login.your_email') %>
                             </h4>
 
                             <div class="col-md-12 col-sm-12">
                                 <label>
-                                    <%= __('login.form.enter.email') %>
+                                    <%= __('login.form.enter_email') %>
                                     <span ng-show="frm_login.login_email.$error.pattern"
                                           class="error pull-right">
-                                        <%= __('login.form.enter.email.error') %>
+                                        <%= __('login.form.enter_email_error') %>
                                     </span>
                                 </label>
 
@@ -58,27 +58,27 @@
                         <div id="step_password">
                             <h4 ng-show="user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-users fa-2x"></i>
-                                <%= __('login.your.email.is.unknown') %>
+                                <%= __('login.your_email_is_unknown') %>
                             </h4>
                             <h4 ng-show="!user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-users fa-2x"></i>
-                                <%= __('login.your.email.is.known') %>
+                                <%= __('login.your_email_is_known') %>
                             </h4>
                             
                             <div class="col-md-12">
                                 <label ng-show="user.newuser">
-                                    <%= __('login.form.enter.new.password') %>
+                                    <%= __('login.form.enter_new_password') %>
                                     <span ng-show="frm_login.login_pass.$error.minlength"
                                           class="error pull-right">
-                                        <%= __('login.form.enter.new.password.error') %>
+                                        <%= __('login.form.enter_new_password_error') %>
                                     </span>
                                 </label>
 
                                 <label ng-show="!user.newuser">
-                                    <%= __('login.form.enter.password') %>
+                                    <%= __('login.form.enter_password') %>
                                     <span ng-show="wrpass"
                                           class="error pull-right">
-                                        <%= __('login.form.enter.password.error') %>
+                                        <%= __('login.form.enter_password_error') %>
                                     </span>
                                 </label>
 
@@ -94,10 +94,10 @@
 
                             <div class="col-md-12 m-t-10" ng-show="user.newuser">
                                 <label>
-                                    <%= __('login.form.confirm.password') %>
+                                    <%= __('login.form.confirm_password') %>
                                     <span ng-show="frm_login.login_pass_c.$dirty && user.password !== user.password_c"
                                           class="error pull-right">
-                                        <%= __('login.form.confirm.password.error') %>
+                                        <%= __('login.form.confirm_password_error') %>
                                     </span>
                                 </label>
                                  <input ng-model="user.password_c"
@@ -114,7 +114,7 @@
                         <div id="step_terms">
                             <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
                                 <i class="fa fa-thumbs-o-up fa-2x p-r-5"></i>
-                                <%= __('login.form.accept.cgu.please') %>
+                                <%= __('login.form.accept_cgu_please') %>
                             </h4>
 
                             <div class="control-group col-md-12 m-t-20 text-center">
@@ -126,7 +126,7 @@
                                            value="1">
 
                                     <label for="login_terms">
-                                        <%= __('login.form.accept.cgu') %>
+                                        <%= __('login.form.accept_cgu') %>
                                     </label>
                                 </div>
                             </div>
