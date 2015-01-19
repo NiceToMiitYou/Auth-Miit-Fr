@@ -24,8 +24,8 @@
     "grunt-contrib-coffee": "~0.10.1"
   },
   "scripts": {
-    "start": "node app.js",
-    "debug": "node debug app.js"
+    "postinstall": "bash ./install/post-install.sh",
+    "start": "node app.js lift"
   },
   "main": "app.js",
   "repository": {
