@@ -1,19 +1,15 @@
 {
-  "name": "Auth",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
-  "keywords": [],
   "dependencies": {
     "ejs": "^0.8.8",
-    "grunt": "^0.4.2",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.3.4",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-coffee": "^0.10.1",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-cssmin": "^0.9.0",
     "grunt-contrib-jst": "~0.6.0",
-    "grunt-contrib-less": "^0.11.1",
+    "grunt-contrib-less": "^0.11.4",
     "grunt-contrib-uglify": "^0.4.1",
     "grunt-contrib-watch": "^0.5.3",
     "grunt-sails-linker": "^0.9.6",
@@ -23,6 +19,11 @@
     "sails": "^0.11.0-rc9",
     "sails-disk": "~0.10.0"
   },
+  "name": "Auth",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
   "scripts": {
     "postinstall": "bash ./install/post-install.sh",
     "start": "node app.js lift"
