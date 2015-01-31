@@ -14,6 +14,12 @@ module.exports = {
 
         if( !conferenceToken ) {
 
+            if ( req.session.conference &&
+                 req.session.conference.token ) {
+
+                return res.redirect( '/' + req.session.conference.token );
+            }
+
             return res.redirect( redirectUrl );
         } else {
 
