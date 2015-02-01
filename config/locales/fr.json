@@ -19,7 +19,7 @@
             "confirm_password_error": "Votre mot de passe ne correspond pas à la confirmation",
 
             "accept_cgu_please": "Félicitation, vous vous êtes connecté avec succès. Acceptez les conditions générales d'utilisation pour entrer dans la conférence.",
-            "accept_cgu": "Accepter les conditions générales d'utilisation",
+            "accept_cgu": "J'ai lu et j'accepte les <a href=\"/documents/CGU.pdf\">conditions générales d'utilisation</a>",
 
             "register": "Inscription",
             "connection": "Connexion"
