@@ -32,7 +32,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': 'http://www.itevents.fr/',
+  '/': {
+    controller: 'UserController',
+    action: 'index'
+  },
 
   'POST /user/login': {
     controller: 'UserController',

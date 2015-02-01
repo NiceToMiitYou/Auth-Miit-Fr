@@ -4,29 +4,24 @@
     "login": {
         "title": "Connectez-vous pour commencer",
 
-        "your_email": "Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira egalement si vous souhaitez vous envoyer des notes.",
-        "your_email_is_unknown": "Nous ne connaissons pas votre adresse e-mail, choisissez un mot de passe pour rejoindre la conférence et protéger votre compte.",
-        "your_email_is_known": "Bienvenue à cette conférence. Nous sommes très heureux de vous retrouver.",
-
         "form": {
 
-            "enter_email": "Entrez votre adresse e-mail",
+            "enter_email": "Adresse e-mail",
             "enter_email_error": "Entrez un adresse e-mail valide",
 
-            "enter_new_password": "Choisissez un mot de passe",
-            "enter_new_password_error": "Votre mot de passe doit faire 6 characteres minimum",
+            "need_account": "J'ai besoin d'un compte",
 
-            "enter_password": "Entrez votre mot de passe",
-            "enter_password_error": "Votre mot de passe ne correspond pas à l'adresse e-mail",
+            "enter_password": "Mot de passe",
+            "enter_password_error": "Votre mot de passe doit faire 6 characteres minimum",
+            "enter_password_login_error": "Votre mot de passe ne correspond pas à l'adresse e-mail",
 
-            "confirm_password": "Confirmez votre mot de passe",
+            "confirm_password": "Confirmation",
             "confirm_password_error": "Votre mot de passe ne correspond pas à la confirmation",
 
             "accept_cgu_please": "Félicitation, vous vous êtes connecté avec succès. Acceptez les conditions générales d'utilisation pour entrer dans la conférence.",
             "accept_cgu": "Accepter les conditions générales d'utilisation",
 
-            "previous": "Précédent",
-            "next": "Suivant",
+            "register": "Inscription",
             "connection": "Connexion"
         }
     }

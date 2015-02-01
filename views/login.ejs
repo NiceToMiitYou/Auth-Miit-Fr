@@ -1,161 +1,247 @@
-<div ng-controller="loginController" class="row login-container">  
+<% //'Login form with transition to display' %>
+<div ng-controller="LoginController"
+     ng-class="{ starting: true }"
+     class="row login-container">  
 
-    <div class="tiles white no-padding">
-        
-        <img src="<%= conference.logo %>"
-             class="client_logo p-t-30"
-             width="200"/>
-        
-        <div class="p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10"> 
-            <h3 class="normal">
-                <%= __('login.title') %>
-            </h3>
-            <p class="p-b-20">
-                <%= conference.description %>
-            </p>
-        </div>
-        
-        <div class="tiles grey text-black">
-            <form id="frm_login"
-                  name="frm_login" 
-                  ng-class="{'login-step1' : s === 1,
-                             'login-step2' : s === 2,
-                             'login-step3' : s === 3,
-                             'newuser' : user.newuser }"
-                  ng-keypress="$event.keyCode === 13 || $event.keyCode === 9 ? next() : null"
-                  novalidate>
+    <div class="col s12 offset-m3 m6">
+        <div class="card">
 
-                <div class="login-steps" >
-                    <div class="login-steps-wrapper">
-                        <div id="step_email">
-                            <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
-                                <i class="fa fa-info-circle fa-2x"></i>
-                                <%= __('login.your_email') %>
-                            </h4>
+            <form id="login" name="login" class="col s12">
 
-                            <div class="col-md-12 col-sm-12">
-                                <label>
-                                    <%= __('login.form.enter_email') %>
-                                    <span ng-show="frm_login.login_email.$error.pattern"
-                                          class="error pull-right">
-                                        <%= __('login.form.enter_email_error') %>
-                                    </span>
-                                </label>
+                <div class="card-content">
 
-                                 <input ng-model="user.mail"
-                                        ng-model-options="{ updateOn: none }"
-                                        ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-                                        it-blur="s !== 1"
-                                        id="login_email"
-                                        name="login_email" 
-                                        type="email" 
-                                        class="form-control"
-                                        placeholder="john.smith@mail.com" required>
-                            
-                            </div>
+                    <% //'Logo of the conference' %>
+
+                    <% if( conference.logo ) { %>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <img src="<%= conference.logo %>"
+                                 class="responsive-img"
+                                 width="200"/>
                         </div>
+                    </div>
+                    <% } %>
 
-                        <div id="step_password">
-                            <h4 ng-show="user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
-                                <i class="fa fa-users fa-2x"></i>
-                                <%= __('login.your_email_is_unknown') %>
-                            </h4>
-                            <h4 ng-show="!user.newuser" class="p-l-20 p-r-20 m-b-25 m-t-20">
-                                <i class="fa fa-users fa-2x"></i>
-                                <%= __('login.your_email_is_known') %>
-                            </h4>
-                            
-                            <div class="col-md-12">
-                                <label ng-show="user.newuser">
-                                    <%= __('login.form.enter_new_password') %>
-                                    <span ng-show="frm_login.login_pass.$error.minlength"
-                                          class="error pull-right">
-                                        <%= __('login.form.enter_new_password_error') %>
-                                    </span>
-                                </label>
+                    <% //'Email field' %>
 
-                                <label ng-show="!user.newuser">
-                                    <%= __('login.form.enter_password') %>
-                                    <span ng-show="wrpass"
-                                          class="error pull-right">
-                                        <%= __('login.form.enter_password_error') %>
-                                    </span>
-                                </label>
+                    <div class="row">
+                        <div class="input-field col s12">
 
-                                 <input ng-model="user.password"
-                                        ng-keypress="!user.newuser && ($event.keyCode === 13 || $event.keyCode === 9) ? next() : null"
-                                        it-blur="s !== 2"
-                                        id="login_pass"
-                                        name="login_pass"
-                                        type="password"
-                                        class="form-control"
-                                        placeholder="********" minlength=6 required>
-                            </div>
+                            <input id="email"
+                                   name="email"
+                                   ng-model="user.mail"
+                                   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+                                   ng-class="{
+                                        invalid: (
+                                                    login.email.$viewValue &&
+                                                    !login.email.$valid ||
+                                                    user.exist &&
+                                                    user.need_account
+                                                ),
+                                        valid: ( 
+                                                    user.mail &&
+                                                    login.email.$valid &&
+                                                    !(
+                                                        user.exist &&
+                                                        user.need_account
+                                                    )
+                                                )
+                                   }"
+                                   ng-change="reset()"
+                                   ng-disabled="request_send"
+                                   type="text"
+                                   required>
 
-                            <div class="col-md-12 m-t-10" ng-show="user.newuser">
-                                <label>
-                                    <%= __('login.form.confirm_password') %>
-                                    <span ng-show="frm_login.login_pass_c.$dirty && user.password !== user.password_c"
-                                          class="error pull-right">
-                                        <%= __('login.form.confirm_password_error') %>
-                                    </span>
-                                </label>
-                                 <input ng-model="user.password_c"
-                                        ng-keypress="$event.keyCode === 13 || $event.keyCode === 9 ? next() : null"
-                                        it-blur="s !== 2"
-                                        id="login_pass_c" 
-                                        name="login_pass_c"
-                                        type="password"
-                                        class="form-control col-md-12"
-                                        placeholder="********" minlength=6 required>
-                            </div>
+                            <label for="email">
+                                <%= __('login.form.enter_email') %>
+                            </label>
+
                         </div>
+                    </div>
 
-                        <div id="step_terms">
-                            <h4 class="p-l-20 p-r-20 m-b-25 m-t-20">
-                                <i class="fa fa-thumbs-o-up fa-2x p-r-5"></i>
-                                <%= __('login.form.accept_cgu_please') %>
-                            </h4>
+                    <% //'Need accound field' %>
 
-                            <div class="control-group col-md-12 m-t-20 text-center">
-                                <div class="checkbox check-success">
-                                    <input ng-model="user.cgu"
-                                           it-blur="s !== 3"
-                                           type="checkbox"
-                                           id="login_terms"
-                                           value="1">
+                    <div class="row">
+                        <div class="input-field col s12">
 
-                                    <label for="login_terms">
-                                        <%= __('login.form.accept_cgu') %>
-                                    </label>
+                            <input id="need_account"
+                                   name="need_account"
+                                   ng-model="user.need_account"
+                                   ng-change="reset()"
+                                   ng-disabled="request_send"
+                                   type="checkbox">
+
+                            <label for="need_account">
+                                <%= __('login.form.need_account') %>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <% //'Password field' %>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            <input id="password"
+                                   name="password"
+                                   ng-model="user.password"
+                                   ng-class="{ 
+                                        invalid: ( 
+                                                    user.password &&
+                                                    user.password.length < 6 ||
+                                                    user.wrong
+                                                ),
+                                        valid: (
+                                                    user.password.length >= 6 &&
+                                                    !user.wrong
+                                                )
+                                   }"
+                                   ng-change="reset()"
+                                   ng-disabled="request_send"
+                                   type="password"
+                                   required>
+
+                            <label for="password">
+                                <%= __('login.form.enter_password') %>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <% //'Confirm field' %>
+
+                    <div class="row">
+                        <div class="input-field col s12 animate-show" ng-show="user.need_account">
+
+                            <input id="confirm_password"
+                                   name="confirm_password"
+                                   ng-model="user.confirm"
+                                   ng-class="{ 
+                                        invalid: ( 
+                                                    user.confirm &&
+                                                    (
+                                                        user.confirm !== user.password ||
+                                                        user.confirm.length < 6
+                                                    )
+                                                ),
+                                        valid: ( 
+                                                    user.confirm === user.password &&
+                                                    user.confirm.length >= 6
+                                                )
+                                   }"
+                                   ng-change="reset()"
+                                   ng-disabled="request_send"
+                                   type="password"
+                                   required>
+
+                            <label for="confirm_password">
+                                <%= __('login.form.confirm_password') %>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <% //'CGU field' %>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            <input id="cgu"
+                                   name="cgu"
+                                   ng-model="cgu"
+                                   ng-disabled="request_send"
+                                   type="checkbox">
+
+                            <label for="cgu">
+                                <a href="/documents/CGU.pdf">
+                                    <%= __('login.form.accept_cgu') %>
+                                </a>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <% //'Button field' %>
+
+                    <div class="row">
+                        <div class="col s12 center-align margin-top-20">
+
+                            <a class="btn-flat"
+                               ng-class="{
+                                    disabled:        disabled(),
+                                    'waves-effect': !disabled()
+                               }"
+                               ng-click="processed()">
+                                {{
+                                    user.need_account ?
+                                    "<%= __('login.form.register') %>" :
+                                    "<%= __('login.form.connection') %>"
+                                }}
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <% //'Progressbar' %>
+
+            <div class="overflow" ng-show="request_send">
+
+                <div class="full-height valign-wrapper">
+                    <div class="valign">
+
+                        <div class="preloader-wrapper big active">
+
+                            <div class="spinner-layer spinner-blue">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
                                 </div>
                             </div>
+
+                            <div class="spinner-layer spinner-red">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="spinner-layer spinner-yellow">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
+                            <div class="spinner-layer spinner-green">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                    <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
-                <div class="steps-controller">
-                    <div class="previous-step">
-                        <button ng-click="previous()"
-                                id="login_prev"
-                                type="button" 
-                                class="btn btn-default btn-block btn-cons">
 
-                            <i class="fa fa-arrow-left m-r-10"></i> <%= __('login.form.previous') %>
-                        </button>
-                    </div>
+            </div>
 
-                    <div class="next-step">
-                        <button ng-click="next()"
-                                id="login_next"
-                                type="button"
-                                class="btn btn-primary btn-block btn-cons">
+        </div>
+    </div>
 
-                            {{ s === 3 ? '<%= __('login.form.connection') %>' : '<%= __('login.form.next') %>' }} <i class="fa fa-arrow-right m-l-10"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </form>
-        </div>   
-    </div>   
 </div>

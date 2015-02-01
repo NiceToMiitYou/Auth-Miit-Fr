@@ -1,18 +1,62 @@
 "use strict";
 
-ITEventApp.controller(
-    'loginController', [ '$scope', '$timeout',
+MiitAuth.controller(
+    'LoginController', [ '$scope', '$timeout',
         function( $scope, $timeout ) {
 
-            var requestSend = false;
+            $scope.request_send = false;
+
+            // Reset the request
+            function request_end() {
+
+                $timeout(function(){
+                
+                    $scope.request_send = false;
+                });
+            }
+
+            function check_exist_register() {
+
+                if( !$scope.request_send ) {
+
+                    $scope.request_send = true;
+
+                    // Try to login to know if exist
+                    MiitConnect.user.login( $scope.user.mail, '',
+                        
+                        function( data ) {
+
+                            if( data.done ) {
+
+                                $timeout(function() {
+                                    
+                                    $scope.request_send = false;
+
+                                    // User already exist
+                                    if( data.exist ) {
+
+                                        $scope.user.exist = true;
+                                    } else {
+
+                                        register();
+                                    }
+                                } );    
+                            } else {
+
+                                request_end();
+                            }
+                        } );
+                }
+            }
 
             function login() {
 
-                if( !requestSend ) {
+                if( !$scope.request_send ) {
 
-                    requestSend = true;
+                    $scope.request_send = true;
 
-                    ITConnect.user.login( $scope.user.mail, $scope.user.password,
+                    // Try to login
+                    MiitConnect.user.login( $scope.user.mail, $scope.user.password,
                         
                         function( data ) {
                             
@@ -20,35 +64,24 @@ ITEventApp.controller(
                             
                                 $timeout(function() {
                                     
-                                    // Step one just for check
-                                    if ( $scope.s == 1 ) {
+                                    if ( !data.exist || !data.connected ) {
 
-                                        $scope.user.newuser = !data.exist;
-                                        $scope.s = 2;
-                                        // Step two
-                                    } else if ( $scope.s == 2 ) {
-
-                                        // Check connected
-                                        if ( data.connected ) {
-                                            // Go to step 3
-                                            $scope.user.connected = true;
-                                            $scope.s = 3;
-
-                                        } else {
-                                            // Wrong password then
-                                            $scope.wrpass = true;
-                                        }
-                                    } else if ( $scope.s == 3 ) {
-
-                                        // If last step, connect
-                                        window.location.pathname = '/redirect';
+                                        $scope.user.wrong = true;
                                     }
 
-                                    requestSend = false;
+                                    // If connected, redirect
+                                    else if ( data.connected ) {
+
+                                        window.location.pathname = '/redirect';
+
+                                        return;
+                                    }
+
+                                    $scope.request_send = false;
                                 } );    
                             } else {
 
-                                requestSend = false;
+                                request_end();
                             }
                         } );
                 }
@@ -56,100 +89,87 @@ ITEventApp.controller(
 
             function register() {
 
-                ITConnect.user.register( $scope.user.mail, $scope.user.password,
-                
-                    function( data ) {
+                if( !$scope.request_send ) {
 
-                        if ( data.done ) {
-                            
-                            $timeout(function(){
-                            
-                                $scope.user.newuser = false;
+                    $scope.request_send = true;
 
-                                $scope.next();
-                            });
-                        }
-                    } );
+                    MiitConnect.user.register( $scope.user.mail, $scope.user.password,
+                    
+                        function( data ) {
+
+                            if ( data.done ) {
+                                
+                                $timeout(function(){
+
+                                    $scope.request_send = false;
+                                
+                                    login();
+                                });
+                            } else {
+                            
+                                request_end();
+                            }
+                        } );
+                }
             }
 
             // User model
             $scope.user = {
                 mail: '',
                 password: '',
-                password_c: '',
-                cgu: false,
-                newuser: true,
-                connected: false
+                confirm: '',
+                need_account: false,
+                exist: false,
+                wrong: false
             };
 
-            // Default step
-            $scope.s = 1;
-            $scope.wrpass = false;
+            function disabled() {
 
-            // Handle next
-            $scope.next = function() {
+                var disabled = false;
 
-                if (
-                    $scope.s == 1 &&
-                    $scope.user.mail
-                ) {
-                    // First Step, check email
-
-                    login();
-
-                } else if (
-                    $scope.s == 2 &&
-                    $scope.user.mail &&
-                    $scope.user.password &&
-                    (
-                        $scope.user.newuser === false ||
-                        $scope.user.password === $scope.user.password_c
+                if(  $scope.request_send || // Already a request in progress
+                    !$scope.cgu || // No CGU checked
+                    !$scope.user.mail || // No mail
+                     $scope.user.wrong || // Password wrong
+                     $scope.user.password.length < 6 || // Password length
+                    ( // Password not confirmed
+                        $scope.user.need_account &&
+                        $scope.user.password !== $scope.user.confirm
+                    ) ||
+                    ( // Account already exist
+                        $scope.user.need_account &&
+                        $scope.user.exist
                     )
                 ) {
-                    // Second Step, Check password, if user exist or user confirm his password
+                    
+                    disabled = true;
+                }
 
-                    if ( $scope.user.newuser ) {
-                        // If the user doesn't exist
+                return disabled;
+            }
 
-                        register();
+            $scope.processed = function() {
+                
+                // If not in progress and not disabled
+                if( !$scope.request_send && !disabled() ) {
+                    
+                    // If need account => register, else => login
+                    if( $scope.user.need_account ) {
 
+                        check_exist_register();
                     } else {
-                        // If the user exist 
 
                         login();
                     }
-
-                } else if (
-                    $scope.s == 3 &&
-                    $scope.user.mail &&
-                    $scope.user.password &&
-                    $scope.user.cgu
-                ) {
-                    // Check if user accept terms
-
-                    login();
-                }
-
-            };
-
-            // Handle previous
-            $scope.previous = function() {
-
-                if ( $scope.s > 1 ) {
-                    // Go back in step
-
-                    $scope.s--;
                 }
             };
 
-            if ( document.getElementById( 'login_email' ) ) {
+            // Reset all prerequist
+            $scope.reset = function() {
 
-                // Handle TAB from form
-                document.getElementById( 'login_email' )
-                    .onkeydown = function( e ) {
-                        if ( e.keyCode == 9 ) {
-                            return false;
-                        }
-                };
-            }
+                $scope.user.exist = false;
+                $scope.user.wrong = false;
+            };
+
+            $scope.disabled = disabled;
     } ] );

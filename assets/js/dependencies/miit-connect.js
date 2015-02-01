@@ -1,6 +1,6 @@
 "use strict";
 
-window.ITConnect = ( function() {
+window.MiitConnect = ( function() {
 
     return {
 

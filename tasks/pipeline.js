@@ -16,17 +16,9 @@
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
 
-  'plugins/bootstrap*/**/*.css',
+  'vendor/materialize/bin/materialize.css',
 
-  'plugins/jquery-*/**/*.css',
-
-  'plugins/**/*.css',
-
-  'styles/css/responsive.css',
-  
-  'styles/css/style.css',
-  
-  'styles/**/*.css'
+  'styles/importer.css'
  ];
 
 
@@ -34,28 +26,28 @@ var cssFilesToInject = [
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
 
+  // Preloader
+  'vendor/pace/pace.js',
+
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
 
-  'js/dependencies/jquery-1.8.3.js',
+  // Libraries
+  // jQuery
+  'vendor/jquery/dist/jquery.js',
 
-  'js/dependencies/angular.js',
+  // Angular
+  'vendor/angular/angular.js',
+  'vendor/angular-animate/angular-animate.js',
 
-  'js/dependencies/angular-*.js',
+  // Materialize
+  'vendor/materialize/bin/materialize.js',
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
 
-  'plugins/bootstrap*/**/*.js',
-
-  'plugins/jquery-*/**/*.js',
-
-  'plugins/**/*.js',
-
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-
-  'js/utils/**/*.js',
 
   'js/controllers/**/*.js',
 

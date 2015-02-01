@@ -2,6 +2,10 @@
 
 ADAPTERS='api/adapters/sails-rest'
 
+# Install bower dependencies
+bower install
+
+# Install the adapter
 if [ "$(ls -A $ADAPTERS)" ]; then
 
     echo "Info: sails-rest already installed."
