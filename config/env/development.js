@@ -13,6 +13,12 @@
 module.exports = {
 
   /***************************************************************************
+   * Set the port in the developement environment to 4242                    *
+   ***************************************************************************/
+
+  port: 4242,
+
+  /***************************************************************************
    * Set the default database connection for models in the development       *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
