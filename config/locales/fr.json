@@ -6,6 +6,7 @@
 
         "form": {
 
+            "email_info": "Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira egalement si vous souhaitez vous envoyer des notes.",
             "enter_email": "Adresse e-mail",
             "enter_email_error": "Entrez un adresse e-mail valide",
 
