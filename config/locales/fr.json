@@ -21,10 +21,12 @@
             "confirm_password_error": "Votre mot de passe ne correspond pas à la confirmation",
 
             "accept_cgu_please": "Félicitation, vous vous êtes connecté avec succès. Acceptez les conditions générales d'utilisation pour entrer dans la conférence.",
-            "accept_cgu": "J'ai lu et j'accepte les <a href=\"/documents/CGU.pdf\">conditions générales d'utilisation</a>",
+            "accept_cgu": "J'ai lu et j'accepte les <a href=\"#\" ng-click=\"showcgu = 1\">conditions générales d'utilisation</a>",
 
             "register": "Inscription",
-            "connection": "Connexion"
+            "connection": "Connexion",
+
+            "cgu": "Conditions générales d’utilisation"
         }
     },
 
