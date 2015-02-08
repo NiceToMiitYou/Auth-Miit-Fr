@@ -1,3 +1,3 @@
 "use strict";
 
-window.MiitAuth = angular.module( 'MiitAuth', [ 'ngAnimate' ] );
+window.MiitAuth = angular.module( 'MiitAuth', [] );
