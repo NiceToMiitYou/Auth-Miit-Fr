@@ -131,7 +131,10 @@ MiitAuth.controller(
                     !$scope.cgu || // No CGU checked
                     !$scope.user.mail || // No mail
                      $scope.user.wrong || // Password wrong
-                     $scope.user.password.length < 6 || // Password length
+                     ( 
+                        $scope.user.password &&
+                        $scope.user.password.length < 6
+                    ) || // Password length
                     ( // Password not confirmed
                         $scope.user.need_account &&
                         $scope.user.password !== $scope.user.confirm
