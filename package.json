@@ -19,14 +19,14 @@
     "sails": "^0.11.0",
     "sails-disk": "~0.10.0"
   },
-  "name": "Auth",
+  "name": "app-miit-fr",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
   "scripts": {
     "postinstall": "bash ./install/post-install.sh",
-    "start": "node app.js lift"
+    "start": "forever app.js lift"
   },
   "main": "app.js",
   "repository": {
