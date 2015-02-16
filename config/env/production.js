@@ -16,12 +16,6 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 80,
-
-  /***************************************************************************
-   * Set the log level in production environment to "silent"                 *
-   ***************************************************************************/
-
   connections: {
 
     DwhWebService: {
@@ -29,10 +23,12 @@ module.exports = {
             accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
         },
         protocol: 'http',
-        host: 'localhost',
-        port: 1337
+        host: 'dwh.miit.fr',
+        port: 80
     }
   },
+
+  port: 80,
   
   log: {
      level: "silent"
