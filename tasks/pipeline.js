@@ -38,7 +38,6 @@ var jsFilesToInject = [
 
   // Angular
   'vendor/angular/angular.js',
-  'vendor/angular-animate/angular-animate.js',
 
   // Materialize
   'vendor/materialize/bin/materialize.js',
