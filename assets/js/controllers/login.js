@@ -1,5 +1,11 @@
 "use strict";
 
+if (typeof window.console === "undefined" || typeof window.console.log === "undefined") {
+
+    window.console = {};
+    window.console.log = function() {};
+}
+
 MiitAuth.controller(
     'LoginController', [ '$scope', '$timeout',
         function( $scope, $timeout ) {
