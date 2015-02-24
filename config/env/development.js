@@ -12,26 +12,17 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the port in the developement environment to 4242                    *
-   ***************************************************************************/
+    connections: {
 
-  port: 4242,
+        DwhWebService: {
+            args: {
+                accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
+            },
+            protocol: 'http',
+            host: 'localhost',
+            port: 1337
+        }
+    },
 
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
-
-  connections: {
-
-    DwhWebService: {
-        args: {
-            accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
-        },
-        protocol: 'http',
-        host: 'localhost',
-        port: 1337
-    }
-  }
+    port: 4242
 };

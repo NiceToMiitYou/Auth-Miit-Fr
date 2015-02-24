@@ -12,22 +12,17 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+    connections: {
 
-  connections: {
+        DwhWebService: {
+            args: {
+                accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
+            },
+            protocol: 'http',
+            host: 'dwh.qlf.priv.miit.fr',
+            port: 80
+        }
+    },
 
-    DwhWebService: {
-        args: {
-            accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
-        },
-        protocol: 'http',
-        host: 'dwh.qlf.priv.miit.fr',
-        port: 80
-    }
-  },
-
-  port: 80
+    port: 80
 };
