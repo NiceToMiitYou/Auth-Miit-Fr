@@ -9,16 +9,15 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 
-var fs = require( 'fs' );
-var filename = 'logo.txt';
-
-module.exports.bootstrap = function( cb ) {
-
-    sails.log.ship = function() {
-
-        var logo = fs.readFileSync( filename, 'utf8' )
+var logo = require( 'fs' )
+            .readFileSync( 'logo.txt', 'utf8' )
             .toString()
             .split( '\n' );
+
+module.exports.bootstrap = function(cb) {
+
+    // Change the logo of sails
+    sails.log.ship = function() {
 
         for ( var line in logo ) {
             sails.log.info( logo[ line ] );
