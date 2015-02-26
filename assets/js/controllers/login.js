@@ -6,8 +6,10 @@ if (typeof window.console === "undefined" || typeof window.console.log === "unde
     window.console.log = function() {};
 }
 
-MiitAuth.controller(
-    'LoginController', [ '$scope', '$timeout',
+angular
+    .module( 'MiitAuth')
+    .controller( 'LoginController', [
+        '$scope', '$timeout',
         function( $scope, $timeout ) {
 
             $scope.request_send = false;
