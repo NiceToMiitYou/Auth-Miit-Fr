@@ -12,6 +12,17 @@
 
 module.exports = {
 
+    application: {
+
+        services: {
+
+            manager: {
+                service: 'manager',
+                url:     'http://127.0.0.1:2048/'
+            }
+        }
+    },
+
     connections: {
 
         DwhWebService: {

@@ -12,6 +12,17 @@
 
 module.exports = {
 
+    application: {
+
+        services: {
+
+            manager: {
+                service: 'manager',
+                url:     'http://manager.qlf.priv.miit.fr/'
+            }
+        }
+    },
+
     connections: {
 
         DwhWebService: {

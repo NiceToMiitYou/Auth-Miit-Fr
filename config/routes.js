@@ -33,7 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    controller: 'UserController',
+    controller: 'RouterController',
     action: 'index'
   },
 
@@ -48,13 +48,18 @@ module.exports.routes = {
   },
 
   'GET /redirect': {
-    controller: 'UserController',
+    controller: 'RouterController',
     action: 'redirect'
   },
 
+  'GET /service/:service': {
+    controller: 'RouterController',
+    action: 'service'
+  },
+
   'GET /:token': {
-    controller: 'UserController',
-    action: 'index'
+    controller: 'RouterController',
+    action: 'conference'
   }
 
   /***************************************************************************
