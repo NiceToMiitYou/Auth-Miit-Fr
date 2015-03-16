@@ -40,7 +40,7 @@ module.exports = {
         } else {
 
             return res.notDone({
-                error: 'INVALID_MAIL_OR_CONFERENCE'
+                error: 'INVALID_MAIL_OR_DATA'
             });
         }
     },

@@ -56,7 +56,16 @@ angular
             // Fired upon a successful reconnection.
             function onReconnect( attempt ) {
 
-                hide();
+                hide( function() {
+                    // Try to reconnect
+                    MiitConnect.user.login('try_connect', '', function( data ) {
+
+                        if( !data || data && data.error === 'INVALID_MAIL_OR_DATA' ) {
+
+                            window.location.reload();
+                        }
+                    } );
+                } );
             }
             
             // Fired upon an attempt to reconnect.
