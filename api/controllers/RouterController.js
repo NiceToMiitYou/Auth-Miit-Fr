@@ -65,7 +65,8 @@ module.exports = {
                     };
 
                     return res.view( 'login', {
-                        logo: conference.logo
+                        logo:       conference.logo,
+                        conference: conference
                     } );
                 } );
 
