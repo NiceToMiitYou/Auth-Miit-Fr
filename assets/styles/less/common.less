@@ -113,3 +113,41 @@ div.login-container {
     text-align: center;
     cursor: pointer;
 }
+
+
+
+.connection-bar {
+    display: none;
+    height: 0;
+
+
+    .pace-done & {
+        display: block;
+        height: 64px;
+        padding: 9px 32px;
+    }
+
+    a {
+        margin-top: 2px;
+        float: right;
+
+        height: 38px;
+        line-height: 38px;
+    }
+
+    span {
+        margin-left: 18px;
+        float: left;
+
+        font-size: 1.3rem;
+        line-height: 3rem;
+        color: #fff;
+    }
+
+    &.warn {
+        background-color: #ffa726;
+    }
+    &.infos {
+        background-color: #8bc34a;
+    }
+}
