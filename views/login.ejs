@@ -1,6 +1,7 @@
 <% //'Login form with transition to display' %>
 <div ng-controller="LoginController"
      ng-class="{ starting: true }"
+     ng-init="user.mail = '<%= mail %>'"
      class="login-container"> 
 
     <div class="login-content">

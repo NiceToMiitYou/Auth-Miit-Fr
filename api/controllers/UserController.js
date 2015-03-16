@@ -29,6 +29,7 @@ module.exports = {
                         });
                     }
 
+                    req.session.mail     = mail;
                     req.session.location = response.location;
 
                     return res.done( { 
