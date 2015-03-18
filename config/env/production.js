@@ -21,8 +21,8 @@ module.exports = {
                 accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
             },
             protocol: 'http',
-            host: '127.0.0.1',
-            port: 1337
+            host: 'dwh.miit.fr',
+            port: 80
         }
     },
 
@@ -48,9 +48,9 @@ module.exports = {
         db:      'auth-miit-fr'
     },
 
-    port: 80,
+    port: 443,
     
     log: {
-       level: "silent"
+       level: 'silent'
     }
 };
