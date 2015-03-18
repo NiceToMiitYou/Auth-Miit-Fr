@@ -10,6 +10,8 @@
  *
  */
 
+var fs = require('fs');
+
 module.exports = {
 
     connections: {
@@ -19,9 +21,31 @@ module.exports = {
                 accessToken: 'qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6'
             },
             protocol: 'http',
-            host: 'dwh.miit.fr',
-            port: 80
+            host: '127.0.0.1',
+            port: 1337
         }
+    },
+
+    ssl: {
+        key:  fs.readFileSync('/home/ubuntu/certificates/miit-key.pem'),
+        cert: fs.readFileSync('/home/ubuntu/certificates/miit-fr.crt'),
+        ca:   fs.readFileSync('/home/ubuntu/certificates/digi-cert-ca.crt')
+    },
+
+    session: {
+        adapter: 'redis',
+        host:    'miit-fr-001.xidhqo.0001.euc1.cache.amazonaws.com',
+        port:     6379,
+        prefix:  'sess:',
+        db:      'auth-miit-fr'
+    },
+
+    sockets: {
+        adapter: 'redis',
+        host:    'miit-fr-001.xidhqo.0001.euc1.cache.amazonaws.com',
+        port:     6379,
+        prefix:  'sock:',
+        db:      'auth-miit-fr'
     },
 
     port: 80,
