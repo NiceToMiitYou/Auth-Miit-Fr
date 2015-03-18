@@ -3,7 +3,8 @@
 <% //'Login form with transition to display' %>
 <div ng-controller="LoginController"
      ng-class="{ starting: true }"
-     class="login-container valign-wrapper"> 
+     ng-init="user.mail = '<%= mail %>'"
+     class="login-container valign-wrapper" > 
      <div class="container custom">
          <div class="row valign">
             <div class="col s12 m6 login-info-block hide-on-small-only">
