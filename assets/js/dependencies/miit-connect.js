@@ -4,6 +4,12 @@ window.MiitConnect = ( function() {
 
     return {
 
+        // Listen
+        listen: function( name, cb ) {
+            // Bind the event
+            io.socket.on( name, cb );
+        },
+        
         // User actions
         user: {
 

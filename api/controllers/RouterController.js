@@ -32,7 +32,8 @@ module.exports = {
 
             // Render login page
             return res.view( 'login', {
-                logo: '/images/logodark.png'
+                logo: '/images/logodark.png',
+                mail: req.session.mail || ''
             } );
         } else {
             
@@ -65,7 +66,9 @@ module.exports = {
                     };
 
                     return res.view( 'login', {
-                        logo: conference.logo
+                        logo:       conference.logo,
+                        mail:       req.session.mail || '',
+                        conference: conference
                     } );
                 } );
 

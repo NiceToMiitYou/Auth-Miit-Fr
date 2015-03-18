@@ -29,6 +29,7 @@ module.exports = {
                         });
                     }
 
+                    req.session.mail     = mail;
                     req.session.location = response.location;
 
                     return res.done( { 
@@ -39,7 +40,7 @@ module.exports = {
         } else {
 
             return res.notDone({
-                error: 'INVALID_MAIL_OR_CONFERENCE'
+                error: 'INVALID_MAIL_OR_DATA'
             });
         }
     },
