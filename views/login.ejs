@@ -5,15 +5,17 @@
      ng-class="{ starting: true }"
      ng-init="user.mail = '<%= mail %>'"
      class="login-container valign-wrapper" > 
-     <div class="container custom">
-         <div class="row valign">
+    
+    <div class="container custom">
+        <div class="row valign">
+
             <div class="col s12 m6 login-info-block hide-on-small-only">
                 <h4>
                     
                     <%= __('login.form.connection') %></h4>
                 <p>
                     <i class="small mdi-action-info prefix left"></i>
-                        <%= __('login.form.email_info') %>
+                    <%= __('login.form.email_info') %>
                 </p>
                 <br>
                 
@@ -27,10 +29,12 @@
                 <br>
                 <div>
                     <a class="waves-effect waves-light btn btn-large cyan" >
-                        <i class="mdi-action-search left"></i>Changer de conférence
+                        <i class="mdi-action-search left"></i>
+                        <%= __('login.form.change_conference') %>
                     </a>
                 </div>
             </div>
+
             <div class="col s12 m5 offset-m1">
                 <div class="login-content">
 
@@ -47,13 +51,6 @@
                         </li>
                     </ul>
                     
-            <!--         <div class="grey-tile">
-                        <p>
-                            <i class="small mdi-action-info prefix"></i>
-                                <%= __('login.form.email_info') %>
-                        </p>
-                    </div> -->
-             
                     <form id="login" name="login">
 
                         <div class="row">
@@ -244,21 +241,17 @@
             </div>
         </div>
     </div>
+
     <div class="login-powered hide-on-small-only">
         <% if( logo ) { %>
-            <img src="<%= logo %>"
-             class="login-logo"
-             />
+            <img src="<%= logo %>" class="login-logo" />
         <% } %> 
         <span> 
             Powered by 
-            <img src="/images/logolight.png"
-             class="login-logo"
-             />
-         </span>
-        
+            <img src="/images/logolight.png" class="login-logo" />
+        </span>
+    </div>
 
-     </div>
     <div id="modal-cgu" class="modal" ng-show="showcgu" ng-init="showcgu=false">
       <h4><%= __('login.form.cgu') %></h4>
       <p>
