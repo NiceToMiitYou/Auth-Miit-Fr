@@ -18,6 +18,7 @@ module.exports = {
 
             manager: {
                 service: 'manager',
+                name:    'Manager Miit',
                 url:     'http://manager.qlf.priv.miit.fr/'
             }
         }

@@ -59,9 +59,26 @@ div.login-container {
 
         h4 {
             color: rgb(255, 247, 204);
+            text-align: center;
             text-transform: uppercase;
             font-size: 2rem;
             margin-top:0;
+            margin-bottom: 18px;
+        }
+
+        p.infos {
+            font-size: 0.92rem;
+        }
+
+        p.desc {
+            font-size: 1.32rem;
+            text-align: center;
+            margin-top: 42px;
+            margin-bottom: 32px;
+        }
+
+        div a.btn {
+            margin-top: 48px;
         }
     }
 }
@@ -97,10 +114,8 @@ div.login-container {
 
 .login-content {
     position: relative;
-    /*width:500px;*/
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.03);
-    /*background-color: #fff;*/
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
     margin-left: auto;
     margin-right: auto;
 
@@ -183,12 +198,10 @@ div.login-container {
 }
 
 .container.custom {
-  width: 92%;
-}
-
-@media only screen and (min-width: 1250px) {
-    .container.custom {
-      width: 70%;
+    width: 92%;
+    
+    @media only screen and (min-width: 1250px) {
+        width: 70%;
     }
 }
 

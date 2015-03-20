@@ -17,6 +17,7 @@ module.exports = {
         services: {
 
             manager: {
+                name:    'Manager Miit',
                 service: 'manager',
                 url:     'http://127.0.0.1:2048/'
             }

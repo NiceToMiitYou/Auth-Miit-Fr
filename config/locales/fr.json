@@ -32,6 +32,10 @@
         }
     },
 
+    "services": {
+        "manager": "Bienvenue sur le gestionnaire de Miit!"
+    },
+
     "connection-bar": {
         "reconnected": "Vous venez d'être reconnecté.",
         "disconnected": "Vous venez de perdre la connexion avec le serveur. Tentative de reconnexion en cours..."
