@@ -1,5 +1,5 @@
 
-var redirectUrl = 'http://www.itevents.fr/';
+var redirectUrl = 'http://miit.events/';
 
 module.exports = {
 
