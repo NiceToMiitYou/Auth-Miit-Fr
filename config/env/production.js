@@ -10,8 +10,7 @@
  *
  */
 
-var fs              = require('fs'),
-    accessLogStream = fs.createWriteStream( __dirname + '/../logs/access.log', { flags: 'a' } );
+var fs = require('fs');
 
 module.exports = {
 
@@ -29,11 +28,6 @@ module.exports = {
 
     grunt: {
         _hookTimeout: 1000000
-    },
-
-    middleware: {
-
-        morgan: require('morgan')('combined', { stream: accessLogStream })
     },
 
     session: {
