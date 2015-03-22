@@ -1,46 +1,5 @@
 
-
-var redirectUrl = 'http://www.itevents.fr/';
-
-
 module.exports = {
-
-    /**
-     * `UserController.index()`
-     */
-    index: function( req, res ) {
-
-        var conferenceToken = req.param('token');
-
-        if( !conferenceToken ) {
-
-            if ( req.session.conference &&
-                 req.session.conference.token ) {
-
-                return res.redirect( '/' + req.session.conference.token );
-            }
-
-            return res.redirect( redirectUrl );
-        } else {
-
-            Conference
-                .findOne( {
-                    token: conferenceToken
-                } )
-                .exec( function( err, conference ) {
-                    if( err || !conference ) {
-
-                        return res.redirect( redirectUrl );
-                    }
-
-                    req.session.conference = conference;
-
-                    return res.view( 'login', {
-                        conference: conference
-                    } );
-                } );
-        }
-    },
 
     /**
      * `UserController.login()`
@@ -51,16 +10,15 @@ module.exports = {
             password = req.param('password');
 
         if( mail &&
-            req.session.conference &&
-            req.session.conference.id ) {
+            req.session.data ) {
 
             User
                 .custom( {
                     method: 'postJson',
                     action: 'login',
                     data: {
-                        conference: req.session.conference.id,
-                        mail: mail,
+                        data:     req.session.data,
+                        mail:     mail,
                         password: password
                     }
                 }, function( err, response ) {
@@ -71,17 +29,18 @@ module.exports = {
                         });
                     }
 
+                    req.session.mail     = mail;
                     req.session.location = response.location;
 
                     return res.done( { 
-                        exist: response.exist,
+                        exist:     response.exist,
                         connected: response.connected
                     } );
                 } );
         } else {
 
             return res.notDone({
-                error: 'INVALID_MAIL_OR_CONFERENCE'
+                error: 'INVALID_MAIL_OR_DATA'
             });
         }
     },
@@ -101,7 +60,7 @@ module.exports = {
                     method: 'postJson',
                     action: 'register',
                     data: {
-                        mail: mail,
+                        mail:     mail,
                         password: password
                     }
                 }, function( err, response ) {
@@ -116,19 +75,5 @@ module.exports = {
 
             return res.notDone();
         }
-    },
-
-    /**
-     * `UserController.redirect()`
-     */
-    redirect: function( req, res ) {
-
-        if( req.session.conference &&
-            req.session.location ) {
-
-            return res.redirect( req.session.location );
-        }
-
-        return res.redirect( redirectUrl );
     }
 };

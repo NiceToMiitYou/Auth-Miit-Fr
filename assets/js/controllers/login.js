@@ -6,8 +6,10 @@ if (typeof window.console === "undefined" || typeof window.console.log === "unde
     window.console.log = function() {};
 }
 
-MiitAuth.controller(
-    'LoginController', [ '$scope', '$timeout',
+angular
+    .module( 'MiitAuth')
+    .controller( 'LoginController', [
+        '$scope', '$timeout',
         function( $scope, $timeout ) {
 
             $scope.request_send = false;
@@ -121,12 +123,12 @@ MiitAuth.controller(
 
             // User model
             $scope.user = {
-                mail: '',
-                password: '',
-                confirm: '',
+                mail:         '',
+                password:     '',
+                confirm:      '',
                 need_account: false,
-                exist: false,
-                wrong: false
+                exist:        false,
+                wrong:        false
             };
 
             function disabled() {
@@ -134,11 +136,11 @@ MiitAuth.controller(
                 var disabled = false;
 
                 if(  $scope.request_send || // Already a request in progress
-                    !$scope.cgu || // No CGU checked
-                    !$scope.user.mail || // No mail
-                     $scope.user.wrong || // Password wrong
+                    !$scope.cgu          || // No CGU checked
+                    !$scope.user.mail    || // No mail
+                     $scope.user.wrong   || // Password wrong
                      ( 
-                        $scope.user.password &&
+                        $scope.user.password     &&
                         $scope.user.password.length < 6
                     ) || // Password length
                     ( // Password not confirmed

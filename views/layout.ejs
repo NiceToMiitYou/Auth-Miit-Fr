@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="MiitAuth">
+<!--[if lte IE 8]>
+   <html ng-app="MiitAuth" class="oldie">
+<![endif]-->
+<!--[if (gt IE 8)]><!--><html ng-app="MiitAuth"><!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -40,6 +43,7 @@
     <script src="/vendor/materialize/bin/materialize.js"></script>
     <script src="/js/dependencies/miit-angular.js"></script>
     <script src="/js/dependencies/miit-connect.js"></script>
+    <script src="/js/controllers/connection-bar.js"></script>
     <script src="/js/controllers/login.js"></script>
     <!--SCRIPTS END-->
   </body>

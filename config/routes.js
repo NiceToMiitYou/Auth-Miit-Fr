@@ -33,38 +33,34 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    controller: 'UserController',
-    action: 'index'
+    controller: 'RouterController',
+    action:     'index'
   },
 
   'POST /user/login': {
     controller: 'UserController',
-    action: 'login'
+    action:     'login'
   },
 
   'POST /user/register': {
     controller: 'UserController',
-    action: 'register'
+    action:     'register'
   },
 
   'GET /redirect': {
-    controller: 'UserController',
-    action: 'redirect'
+    controller: 'RouterController',
+    action:     'redirect'
+  },
+
+  'GET /service/:service': {
+    controller: 'RouterController',
+    action:     'service',
+    skipAssets:  true
   },
 
   'GET /:token': {
-    controller: 'UserController',
-    action: 'index'
+    controller: 'RouterController',
+    action:     'conference',
+    skipAssets:  true
   }
-
-  /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  *  If a request to a URL doesn't match any of the custom routes above, it  *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
-
 };

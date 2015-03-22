@@ -1,3 +1,3 @@
 "use strict";
 
-window.MiitAuth = angular.module( 'MiitAuth', [] );
+angular.module( 'MiitAuth', [] );

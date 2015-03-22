@@ -8,6 +8,9 @@
 
             "email_info": "Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira également si vous souhaitez vous envoyer des notes.",
             
+            "no_account" : "Pas encore de compte ?",
+            "miit" : "Miit est une application visant à faciliter la communication lors de vos différentes rencontres.",
+
             "enter_email": "Adresse e-mail",
             "enter_email_error": "Entrez un adresse e-mail valide",
 
@@ -26,11 +29,25 @@
             "register": "Inscription",
             "connection": "Connexion",
 
-            "cgu": "Conditions générales d’utilisation"
+            "cgu": "Conditions générales d’utilisation",
+
+            "change_conference": "Changer de conférence"
         }
     },
 
+    "services": {
+        "manager": "Bienvenue sur le gestionnaire de Miit!"
+    },
+
+    "connection-bar": {
+        "reconnected": "Vous venez d'être reconnecté.",
+        "disconnected": "Vous venez de perdre la connexion avec le serveur. Tentative de reconnexion en cours..."
+    },
+
     "errors": {
+
+        "old_browser": "Il semble que votre navigateur soit obsolète, Miit utilise des propeiétés non supportées par votre navigateur vous devez le mettre à jour ou utiliser un navigateur plus récent comme <a href=\"https://www.google.com/chrome/browser/desktop/\">Google Chrome</a> ou <a href=\"https://www.mozilla.org/en-US/firefox/new/\">Mozilla Firefox</a>",
+
         "403": {
             "title": "Accés non autorisé",
             "text": "La page demandée nécessite des droits supplémentaires."
