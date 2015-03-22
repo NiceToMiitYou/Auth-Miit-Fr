@@ -7,6 +7,19 @@ body, html {
     overflow: hidden;
 }
 
+
+.old_browser {
+    display: none;
+}
+
+.oldie .old_browser {
+    display: block;
+}
+
+.oldie .container.custom {
+    display: none;
+}
+
 body:before {
     border-top-width: 1500px;
     border-top-style: solid;
@@ -24,6 +37,7 @@ body:before {
     backface-visibility: hidden;
     border-top-color: rgba(0,0,0,0.15);
 }
+
 
 form {
     margin-top: 30px;
@@ -59,22 +73,14 @@ div.login-container {
 
         h4 {
             color: rgb(255, 247, 204);
-            text-align: center;
             text-transform: uppercase;
             font-size: 2rem;
-            margin-top:0;
-            margin-bottom: 18px;
+            margin-top:15px;
+            margin-bottom: 10px;
         }
 
-        p.infos {
-            font-size: 0.92rem;
-        }
-
-        p.desc {
-            font-size: 1.32rem;
-            text-align: center;
-            margin-top: 42px;
-            margin-bottom: 32px;
+        .btn {
+            margin-top: 10px;
         }
 
         div a.btn {

@@ -6,28 +6,36 @@
      ng-init="user.mail = '<%= mail %>'"
      class="login-container valign-wrapper" > 
     
+     <p class="old_browser center"><%- __('errors.old_browser') %></p>
+
     <div class="container custom">
         <div class="row valign">
 
             <div class="col s12 m6 login-info-block hide-on-small-only">
+
                 <h4><%= informations.name %></h4>
-                
-                <p class="infos">
-                    <i class="small mdi-action-info prefix left"></i>
-                    <%= __('login.form.email_info') %>
-                </p>
                 
                 <p class="desc">
                     <%= informations.description %>
                 </p>
 
-                <div class="center-align">
-                    <a class="waves-effect waves-light btn btn-large cyan"
-                       href="http://miit.events/">
-                        <i class="mdi-action-search left"></i>
-                        <%= __('login.form.change_conference') %>
-                    </a>
-                </div>
+                <a class="waves-effect waves-light btn btn-large cyan"
+                   href="http://miit.events/">
+                    <i class="mdi-action-search left"></i>
+                    <%= __('login.form.change_conference') %>
+                </a>
+
+                <h4><%= __('login.form.no_account') %></h4>
+                <p style="margin:0;"><%= __('login.form.miit') %></p>
+                <p class="infos">
+                    <i class="small mdi-action-info prefix left"></i>
+                    <%= __('login.form.email_info') %>
+                </p>
+                <a class="waves-effect waves-light btn btn-large" 
+                onclick="document.getElementById('tab_subscribe').click()">
+                    <i class="mdi-social-person-add prefix left"></i>
+                    <%= __('login.form.register') %>
+                </a>
             </div>
 
             <div class="col s12 m5 offset-m1">
@@ -39,8 +47,8 @@
                                 <%= __('login.form.connection') %>
                             </a>
                         </li>
-                        <li class="tab">
-                            <a ng-click="user.need_account=true">
+                        <li class="tab" >
+                            <a ng-click="user.need_account=true" id='tab_subscribe'>
                                 <%= __('login.form.register') %>
                             </a>
                         </li>
