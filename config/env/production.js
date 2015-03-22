@@ -45,7 +45,7 @@ module.exports = {
         db:           'auth-miit-fr'
     },
 
-    port: 80,
+    port: 8080,
     
     log: {
        level: 'silent'
