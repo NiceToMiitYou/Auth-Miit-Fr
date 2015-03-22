@@ -9,7 +9,7 @@
             "email_info": "Votre adresse e-mail vous servira d'identifiant de connexion, elle vous servira également si vous souhaitez vous envoyer des notes.",
             
             "no_account" : "Pas encore de compte ?",
-            "miit" : "MIIT est une application d'événementiels visant à faciliter la communication lors de vos différentes rencontres.",
+            "miit" : "Miit est une application visant à faciliter la communication lors de vos différentes rencontres.",
 
             "enter_email": "Adresse e-mail",
             "enter_email_error": "Entrez un adresse e-mail valide",
@@ -46,7 +46,7 @@
 
     "errors": {
 
-        "old_browser": "Il semble que votre navigateur est obsolète, MIIT utilise des propeiétés non supporté par votre navigateur vous devez le mettre à jour ou utiliser un navigateur plus recent comme <a href=\"https://www.google.com/chrome/browser/desktop/\"> Google chrome</a> ou <a href=\"https://www.mozilla.org/en-US/firefox/new/\"> Mozzila firefox</a>",
+        "old_browser": "Il semble que votre navigateur soit obsolète, Miit utilise des propeiétés non supportées par votre navigateur vous devez le mettre à jour ou utiliser un navigateur plus récent comme <a href=\"https://www.google.com/chrome/browser/desktop/\">Google Chrome</a> ou <a href=\"https://www.mozilla.org/en-US/firefox/new/\">Mozilla Firefox</a>",
 
         "403": {
             "title": "Accés non autorisé",
