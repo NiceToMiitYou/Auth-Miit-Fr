@@ -29,12 +29,21 @@ module.exports = {
                         });
                     }
 
-                    req.session.mail     = mail;
+                    if( response.exist &&
+                        response.connected) {
+
+                        req.session.mail     = mail;
+                    }
+
                     req.session.location = response.location;
 
-                    return res.done( { 
-                        exist:     response.exist,
-                        connected: response.connected
+                    // Save the session and send the response
+                    req.session.save( function( errSession ) {
+                        
+                        return res.done( { 
+                            exist:     response.exist,
+                            connected: response.connected
+                        } );
                     } );
                 } );
         } else {
