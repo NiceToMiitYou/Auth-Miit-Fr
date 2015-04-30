@@ -56,7 +56,8 @@ module.exports = {
 
             Conference
                 .findOne( {
-                    token: conferenceToken
+                    token:    conferenceToken,
+                    exported: false
                 } )
                 .exec( function( err, conference ) {
                     if( err || !conference ) {
